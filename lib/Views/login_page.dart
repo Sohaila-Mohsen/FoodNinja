@@ -63,7 +63,7 @@ class LoginPage extends StatelessWidget {
                             return "Email is required";
                           } else if (!(value.contains("@") &&
                               value.contains(".com"))) {
-                            return "Email is required";
+                            return "Email invalid";
                           } else {
                             return null;
                           }
@@ -72,6 +72,7 @@ class LoginPage extends StatelessWidget {
                         hint: "Email",
                       ),
                       CustomTextField(
+                        isPassword: true,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return "Password is required";
@@ -123,7 +124,7 @@ class LoginPage extends StatelessWidget {
                                   .showSnackBar(snackBar);
                               NavigationUtils.navigateAndClearStack(
                                   context: context,
-                                  destinationScreen: HomePage());
+                                  destinationScreen: const HomePage());
                             } else {
                               var snackBar = const SnackBar(
                                   content:

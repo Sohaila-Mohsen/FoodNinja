@@ -12,6 +12,7 @@ class CustomTextField extends StatelessWidget {
   final bool isMulti;
   final bool autofocus;
   final bool enabled;
+  final bool isPassword;
   final String? errorText;
   final String label;
   final String? hint;
@@ -39,6 +40,7 @@ class CustomTextField extends StatelessWidget {
     this.suffix,
     this.prefix,
     this.enabled = true,
+    this.isPassword = false,
     this.onEditingCompleted,
     this.onChanged,
     this.isArabic = false,
@@ -69,6 +71,7 @@ class CustomTextField extends StatelessWidget {
         ),
         padding: const EdgeInsets.symmetric(horizontal: 30),
         child: TextFormField(
+          obscureText: isPassword,
           onChanged: onChanged,
           keyboardType: keyboardType,
           controller: controller,
